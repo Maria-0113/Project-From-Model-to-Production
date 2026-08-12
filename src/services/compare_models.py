@@ -74,16 +74,16 @@ def compare_models(model_id, dataset_version, db):
     logger.info(f"Checking which model is better based on the comparison of metrics...")
     
     new_is_better = (
-    # Primary objective
-    new_metrics["recall"] > old_metrics["recall"]
+        # Primary objective
+        new_metrics["recall"] > old_metrics["recall"]
 
-    # Precision must not deteriorate too much
-    and
-    new_metrics["precision"] >= old_metrics["precision"] - 0.02
+        # Precision must not deteriorate too much
+        and
+        new_metrics["precision"] >= old_metrics["precision"] - 0.02
 
-    # Overall ranking performance must not deteriorate too much
-    and
-    new_metrics["pr_auc"] >= old_metrics["pr_auc"] - 0.005
+        # Overall ranking performance must not deteriorate too much
+        and
+        new_metrics["pr_auc"] >= old_metrics["pr_auc"] - 0.005
     )
 
     if new_is_better:
