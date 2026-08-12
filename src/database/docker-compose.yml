@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    container_name: ml_database
+
+    environment:
+      POSTGRES_PASSWORD: my_password
+      POSTGRES_USER: ml_user1
+      POSTGRES_DB: ml_database
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ml_user1 -d ml_database"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

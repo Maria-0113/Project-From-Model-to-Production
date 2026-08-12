@@ -1,0 +1,102 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Environment variables / secrets
+# =========================
+.env
+.env.*
+*.env
+
+# API keys / generated keys
+src/keys/__pycache__/
+src/keys/*.key
+src/keys/*.pem
+src/keys/*.secret
+
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Databases
+# =========================
+*.db
+# =========================
+# Data
+# =========================
+src/data/splits/
+
+# =========================
+# ML artifacts
+# =========================
+# trained models
+*.pt
+*.pth
+*.h5
+
+# checkpoints
+checkpoints/
+weights/
+models/*.pt
+models/*.pth
+src/models/
+
+# experiment outputs
+runs/
+outputs/
+results/
+
+
+# Keep folder structure
+!src/data/.gitkeep
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Build / package files
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Testing
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+

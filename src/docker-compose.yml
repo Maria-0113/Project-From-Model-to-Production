@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+  
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      
+    environment:
+      DATABASE_URL: postgresql://ml_user1:my_password@host.docker.internal:5433/ml_database
+    ports:
+      - "8000:8000"
