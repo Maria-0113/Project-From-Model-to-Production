@@ -49,17 +49,34 @@ jobs:
         if: steps.drift.outputs.drift == 'true'
         id: train
         run: |
-          RESPONSE=$(curl -s -X POST \
+          HTTP_RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" -X POST \
           -H "X-API-Key: $API_KEY" \
           http://localhost:8000/models)
 
-          echo "$RESPONSE"
+
+          HTTP_STATUS=$(echo "$HTTP_RESPONSE" | tail -1 | cut -d: -f2)
+          RESPONSE=$(echo "$HTTP_RESPONSE" | sed '$d')
+
+          echo "HTTP status: $HTTP_STATUS"
+          echo "Response body: $RESPONSE"
+
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "::error::Train request failed with status $HTTP_STATUS"
+            exit 1
+          fi
 
           MODEL_ID=$(echo "$RESPONSE" | jq -r '.model_id')
           IS_BETTER=$(echo "$RESPONSE" | jq -r '.is_better')
 
           echo "model_id=$MODEL_ID" >> "$GITHUB_OUTPUT"
           echo "is_better=$IS_BETTER" >> "$GITHUB_OUTPUT"
+        
+      - name: Show API logs on failure
+        if: failure()
+        working-directory: ./src
+        run: |
+          echo "---- docker compose logs (app service, last 100 lines) ----"
+          docker compose logs --tail 100 app
 
 
 
