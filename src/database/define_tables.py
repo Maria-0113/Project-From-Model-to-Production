@@ -16,6 +16,7 @@ class ModelMetadata(Base):
     recall = Column(Float)
     f1 = Column(Float)
     auc = Column(Float)
+    pr_auc = Column(Float)
 
 class Inference(Base):
     
