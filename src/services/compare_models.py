@@ -26,7 +26,6 @@ def compare_models(model_id, dataset_version, db):
         .filter(ModelDeployment.is_active == True)
         .scalar()
         )
-        print(f"Delpoyed_model_id: {deployed_model_id}")
     except Exception as e:
         logger.error(f"Error occurred while getting the model ID from the database table ModelDeployment: {e}")
         raise HTTPException(status_code=500, detail=f"Error occurred while getting the model ID from the database table ModelDeployment:{e}")
