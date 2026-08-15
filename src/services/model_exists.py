@@ -18,7 +18,6 @@ def model_exists(model_id:str, db: Session):
     """
     logger.info(f"Checking if model with ID {model_id} exists in the database...")
     model = db.query(ModelMetadata).filter(ModelMetadata.id == model_id).first()
-    print(f"model dictionary: {vars(model)}")
     if not model:
         logger.error(f"Model with ID {model_id} not found in the database.")
         raise HTTPException(status_code=404, detail=f"Model {model_id} not found")

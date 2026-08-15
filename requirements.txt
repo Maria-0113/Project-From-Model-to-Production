@@ -27,3 +27,6 @@ typing_extensions==4.16.0
 uvicorn==0.51.0
 xgboost==3.2.0
 scipy
+pytest==8.3.4
+pytest-cov==6.0.0
+httpx==0.28.1
