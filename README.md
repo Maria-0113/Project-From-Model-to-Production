@@ -274,7 +274,7 @@ curl http://localhost:8000/health
 
 ## Architecture Overview
 ![Architecture diagram 1](./images/architecture1.png)
-![Architecture diagram 2](./images/architecture3.png)
+![Architecture diagram 2](./images/architecture.png)
 
 ### Main components
 
