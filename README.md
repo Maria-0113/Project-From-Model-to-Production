@@ -277,13 +277,12 @@ curl http://localhost:8000/health
 ![Architecture diagram 2](./images/architecture.png)
 
 ### Main components
-______
-**1. Model-related components** — the core of the system's predictive functionality - training, evaluation, and inference. Comparison and deployment build directly on this: they decide whether a newly trained model should actually replace the one currently serving predictions, which is what makes the system safely self-updating rather than just automatically retraining on a schedule.
 
-**2. Dataset-related components** — manage training data and detect data drift.
-______
+**1. Model-related components**:
++The core of the system's predictive functionality - training, evaluation, and inference. Comparison and deployment build directly on this: they decide whether a newly trained model should actually replace the one currently serving predictions, which is what makes the system safely self-updating rather than just automatically retraining on a schedule.
++Dataset-related components — manage training data and detect data drift.
 
-**3. API, Database & Authentication layer** — connects all modules together, enabling integration with other programs via API requests, and providing authentication, API Key management and data persistence.
+**2. API, Database & Authentication layer** — connects all modules together, enabling integration with other programs via API requests, and providing authentication, API Key management and data persistence.
 
 ### Component interactions
 
