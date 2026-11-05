@@ -1,6 +1,6 @@
 # Project: From Model to Production — Adaptive Fraud Detection System as a Service
 
-A fraud detection system with seamless integration via API requests/responses, plus automated monitoring, retraining, evaluation, and deployment of the underlying ML model (XGBoost).
+A fraud detection system with seamless integration via API requests/responses, plus automated retraining, evaluation, and deployment of the underlying ML model (XGBoost).
 
 **XGBoost** — gradient-boosted trees for tabular classification. Gradient-boosted trees (GBT) are an ensemble method that builds many small decision trees sequentially, where each new tree focuses on correcting the errors made by the ones before it.
 
